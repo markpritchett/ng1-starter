@@ -4,7 +4,7 @@ var config = {
 	buildDir: './build',
 	outputDir: './dist',
     modes: ['local', 'dev', 'prod'],
-    mode: 'dev'    
+    mode: 'local'    
 };
 
 config.srcFiles = config.srcDir + '/**';

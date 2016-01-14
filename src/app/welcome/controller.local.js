@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	// local
+	// Some Local specific controller
 	angular
 		.module('app.welcome')
 		.controller('WelcomeController', WelcomeController);
