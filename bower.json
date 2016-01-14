@@ -1,0 +1,32 @@
+{
+  "name": "nav-example",
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.14.3",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.6"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.8"
+  }
+}
