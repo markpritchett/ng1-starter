@@ -18,9 +18,9 @@ gulp.task('build:clean', function (done) {
 
 module.exports = {
     getAppJsFiles: function (jsFiles) {
-        var appJsFiles = config.appJs.map(function (f) { return config.srcDir + f });
+        var appJsFiles = config.appJs.map(function (f) { return config.srcDir + f; });
         var filepaths = globule.find(appJsFiles);
-
+        console.log(appJsFiles);
         config.modes.forEach(function (m) {
             var overriddenFile = filepaths.filter(function (f) {
                 return f.indexOf('.' + m + '.js') > -1;
@@ -39,7 +39,7 @@ module.exports = {
                 }
             }
         });
-
+        console.log(filepaths); 
         return filepaths;
     },
     getBowerFiles: function (ext) {

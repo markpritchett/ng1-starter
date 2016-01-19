@@ -28,7 +28,7 @@ config.appJs = [
 ];
 
 config.unitTestingFiles = [		
-    './app/**/*.spec.js'
+    '/app/**/*.spec.js'
 ];
 
 config.e2eFiles = [	

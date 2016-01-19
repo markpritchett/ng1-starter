@@ -3,6 +3,7 @@ var path = require('path');
 var preprocess = require('gulp-preprocess');
 var buildHelpers = require('./build.common.js');
 var config = require('./build.config.js');
+var conventionFileFilter = require('./conventionFileFilter.js');
 
 var filesToInject = [];
 
@@ -30,7 +31,17 @@ gulp.task('build:dev:copy', ['build:clean'], function () {
 });
 
 gulp.task('app-js', ['vendor-js'], function () {
-    buildHelpers.getAppJsFiles(config.appJs).forEach(AddAppAssetToFilesToInject);
+    var files = config.appJs.map(function(f) {
+       return config.srcDir + f;
+    });
+    var appJsFiles = conventionFileFilter.getFiles({
+        baseDir: config.srcDir,
+        files: files,
+        modes: config.modes,
+        mode: config.mode,
+        debug: true
+    });
+    appJsFiles.forEach(AddAppAssetToFilesToInject);
 });
 
 gulp.task('vendor-js', ['build:clean'], function () {

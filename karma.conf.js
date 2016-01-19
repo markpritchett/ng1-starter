@@ -1,12 +1,13 @@
 var wiredep = require('wiredep');
 var bowerFiles = wiredep({ devDependencies: true })['js'];
 var cfg = require('./gulp-tasks/build.config.js'); 
+var buildHelper = require('./gulp-tasks/build.common.js');
 
 module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: cfg.src,
+    //basePath: cfg.srcDir,
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
