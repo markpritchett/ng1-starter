@@ -2,7 +2,7 @@
 var protractor = require("gulp-protractor").protractor;
 var webdriverUpdate = require('gulp-protractor').webdriver_update;
 
-// Needs to run 'webdriver-manager start in a separate console'
+// Needs to run 'webdriver-manager start' in a separate console
 // before running this.
 gulp.task('test:e2e', ['serve'], function () {
     return gulp
@@ -10,5 +10,5 @@ gulp.task('test:e2e', ['serve'], function () {
         .pipe(protractor({
             configFile: "./protractor.config.js"
         }))
-        .on('error', function (e) { console.log(e); throw e });
+        .on('error', function (e) { console.log(e); throw e; });
 });
