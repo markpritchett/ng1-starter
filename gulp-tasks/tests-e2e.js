@@ -4,7 +4,7 @@ var webdriverUpdate = require('gulp-protractor').webdriver_update;
 
 // Needs to run 'webdriver-manager start' in a separate console
 // before running this.
-gulp.task('test:e2e', ['serve'], function () {
+gulp.task('test:e2e', function () {
     return gulp
         .src([".././src/app/**/*.e2e.js", ".././src/app/**/*.po.js"])
         .pipe(protractor({

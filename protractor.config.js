@@ -1,4 +1,6 @@
-﻿exports.config = {
+﻿var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
+
+exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',    
     specs: ['./src/app/**/*.scenario.js'],
 
@@ -13,5 +15,15 @@
         defaultTimeoutInterval: 30000
     },
     chromeOnly: true,
-    baseUrl: 'http://localhost:9000'
+    baseUrl: 'http://localhost:9000',
+    
+    onPrepare: function() {
+      jasmine.getEnv().addReporter(
+        new HtmlScreenshotReporter({
+          dest: 'e2e-test-results',
+          filename: 'report.html'
+        })
+      );
+   }
+   
 };

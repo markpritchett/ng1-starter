@@ -16,7 +16,7 @@ gulp.task('build:dev', ['debug-preprocess'], function () {
 gulp.task('debug-preprocess', ['build:dev:inject'], function() {
     return gulp
         .src(config.builtSrc)
-        .pipe(preprocess({context: { mode: config.mode }})) //To set environment variables in-line 
+        .pipe(preprocess({context: { mode: config.mode }})) 
         .pipe(gulp.dest(config.buildDir));
 });
 
@@ -44,7 +44,7 @@ gulp.task('app-js', ['vendor-js'], function () {
     appJsFiles.forEach(AddAppAssetToFilesToInject);
 });
 
-gulp.task('vendor-js', ['build:clean'], function () {
+gulp.task('vendor-js', ['build:dev:copy'], function () {
     var files = buildHelpers.getBowerFiles('js');
 
     addVendorAssetsToFilesToInject(files, config.vendorJsDir);
@@ -58,7 +58,7 @@ gulp.task('app-css', ['vendor-css'], function () {
     config.appCss.forEach(AddAppAssetToFilesToInject);
 });
 
-gulp.task('vendor-css', ['build:clean'], function () {
+gulp.task('vendor-css', ['build:dev:copy'], function () {
     var files = buildHelpers.getBowerFiles('css');
 
     addVendorAssetsToFilesToInject(files, config.vendorCssDir);
