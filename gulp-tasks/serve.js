@@ -15,4 +15,14 @@ gulp.task('serve', ['build:dev'], function (done) {
     gulp.watch(config.src, ['watch']);
 });
 
+gulp.task('serve-e2e', ['build:dev'], function (done) {
+    browserSync.init({
+        open: true,
+        port: 9000,
+        server: {
+            baseDir: [config.outputDir]
+        }
+    });
+});
+
 gulp.task('watch', ['build:dev'], browserSync.reload);
