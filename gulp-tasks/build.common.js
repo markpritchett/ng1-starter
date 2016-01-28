@@ -2,7 +2,8 @@ var gulp = require('gulp');
 var del = require('del');
 var wiredep = require('wiredep');
 var concat = require('gulp-concat');
-var minifyCss = require('gulp-minify-css');
+var cssnano = require('gulp-cssnano');
+
 var uglify = require('gulp-uglify');
 var rev = require('gulp-rev');
 var inject = require('gulp-inject');
@@ -34,7 +35,7 @@ module.exports = {
         return gulp
             .src(src)
             .pipe(concat(outputFilename))
-            .pipe(minifyCss())
+            .pipe(cssnano())
             .pipe(rev())
             .pipe(gulp.dest(outputDir));
     },
