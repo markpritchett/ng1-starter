@@ -2,17 +2,14 @@
 	'use strict';
 	
 	angular.module('app.welcome', [
-		'ui.router'
+		'ngRoute'
 	])
 	.config(
-				['$stateProvider',
-		function ($stateProvider) { 
-			$stateProvider
-				.state('welcome', {
-					url: '/welcome',
-					data: {
-						pageTitle: 'Welcome'
-					},
+				['$routeProvider',
+		function ($routeProvider) { 
+			$routeProvider
+				.when('/welcome', {
+					title: 'My Welcome Page',
 					templateUrl: 'app/welcome/welcome.html',
 					controller: 'WelcomeController',
 					controllerAs: 'vm'

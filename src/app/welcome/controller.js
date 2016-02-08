@@ -7,5 +7,6 @@
 
     function WelcomeController() {
         var vm = this;
+        vm.message = 'Hallo';
     }
 })();

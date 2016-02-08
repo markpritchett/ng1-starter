@@ -2,9 +2,10 @@
 <html lang="en" ng-app="app">
 <head>
     <meta charset="utf-8" />
-    <title ng-bind="$state.current.data.pageTitle"></title>
+    <title ng-bind="title"></title>
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <meta name="viewport" content="width=device-width" />
+    <base href="/">
     <!-- inject:css -->
     <!-- endinject -->
 </head>
@@ -20,14 +21,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li ng-class="{ active: $state.includes('welcome') }"><a ui-sref="welcome">Home</a></li>
-                    <li ng-class="{ active: $state.includes('about') }"><a ui-sref="about">About</a></li>
+                    <li ng-class="{ active: currentRoute.is('welcome') }"><a ng-href="#/welcome">Home</a></li>
+                    <li ng-class="{ active: currentRoute.is('about') }"><a ng-href="#/about">About</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <div id="body">
-        <div ui-view></div>
+        <div ng-view></div>
     </div>
     <!-- inject:js -->
     <!-- endinject -->

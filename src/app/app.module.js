@@ -6,21 +6,21 @@
 
         'app.welcome',
         'app.about',
-
-        'ui.router',
-        'ui.bootstrap'
+        
+        'ngRoute'
     ])
-        .run(
-            ['$rootScope', '$state', '$stateParams',
-                function ($rootScope, $state, $stateParams) {
-                    $rootScope.$state = $state;
-                    $rootScope.$stateParams = $stateParams;
-                }
-            ]
-        )
-        .config(
-            ['$urlRouterProvider',
-                function ($urlRouterProvider) {
-                    $urlRouterProvider.otherwise('/welcome');
-                }]);
+    .run([
+        '$rootScope', '$location',
+        function($rootScope, $location) {
+            $rootScope.currentRoute = {
+                is: function(routeName) {
+                    return $location.path().substring(1) === routeName;
+                } 
+            };
+            $rootScope.$on('$routeChangeSuccess', function(event, current) {
+                $rootScope.title = current.$$route.title;
+                console.log(current.$$route);
+            });
+        }
+    ]);
 })();

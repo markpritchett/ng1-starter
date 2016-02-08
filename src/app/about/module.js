@@ -2,14 +2,13 @@
 	'use strict';
 	
 	angular.module('app.about', [
-		'ui.router'
+		'ngRoute'
 	])
 	.config(
-				['$stateProvider',
-		function ($stateProvider) { 
-			$stateProvider
-				.state('about', {
-					url: '/about',
+				['$routeProvider',
+		function ($routeProvider) { 
+			$routeProvider
+				.when('/about', {
 					data: {
 						pageTitle: 'About'
 					},
