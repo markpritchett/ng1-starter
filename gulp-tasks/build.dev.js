@@ -1,16 +1,33 @@
 var gulp = require('gulp');
 var path = require('path');
 var preprocess = require('gulp-preprocess');
+var tap = require('gulp-tap');
 var buildHelpers = require('./build.common.js');
 var config = require('./build.config.js');
 var conventionFileFilter = require('./conventionFileFilter.js');
 
 var filesToInject = [];
 
-gulp.task('build:dev', ['debug-preprocess'], function () {
+gulp.task('build:dev', ['add-filenames'], function () {
     return gulp
         .src(config.builtSrc)
         .pipe(gulp.dest(config.outputDir));
+});
+
+gulp.task('add-filenames', ['debug-preprocess'], function() {
+    return gulp
+        .src(config.builtSrc)
+        .pipe(tap(function(file) {
+            var filename = file.path.substring(file.path.indexOf('/app/'));
+            if (file.path.indexOf('/app/') > 0 && path.extname(file.path) === '.html') {
+                file.contents = Buffer.concat([
+                    new Buffer('<!-- begin: ' + filename + ' -->\r\n'),
+                    file.contents,
+                    new Buffer('\r\n<!-- end: ' + filename + ' -->'),
+                ]);
+            }
+        }))
+        .pipe(gulp.dest(config.buildDir));
 });
 
 gulp.task('debug-preprocess', ['build:dev:inject'], function() {
