@@ -1,5 +1,5 @@
 (function () {
-	'use strict';
-	
-	angular.module('templates', []);
+    'use strict';
+
+    angular.module('templates', []);
 })();

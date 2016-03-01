@@ -30,7 +30,7 @@ describe('View', function () {
 
         expect(page.message).toBe('My Message');
     });
-    
+
     it('should NOT show message when show message is false', function () {
         scope.vm = {
             message: 'My Message',

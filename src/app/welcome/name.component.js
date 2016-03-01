@@ -5,6 +5,6 @@
         .module('app.welcome')
         .component('nameComponent', {
             template: 'Welcome, <strong>{{$ctrl.firstName}}</strong>',
-            bindings: { firstName: '<'}
+            bindings: { firstName: '<' }
         });
 })();

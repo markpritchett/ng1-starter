@@ -1,7 +1,7 @@
 (function () {
-	'use strict';
-	
-	angular.module('app.welcome', [
-		'ngRoute'
-	]);
+    'use strict';
+
+    angular.module('app.welcome', [
+        'ngRoute'
+    ]);
 })();
