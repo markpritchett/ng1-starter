@@ -4,9 +4,9 @@
 	describe('Welcome Controller', function () {
 		var $controller;
 		
-		beforeEach(module('app.welcome'));
+		beforeEach(angular.mock.module('app.welcome'));
 		
-		beforeEach(inject(function (_$controller_) { 
+		beforeEach(angular.mock.inject(function (_$controller_) { 
 			$controller = _$controller_;
 		}));
 		

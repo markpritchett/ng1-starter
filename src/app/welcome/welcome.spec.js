@@ -1,9 +1,9 @@
 describe('View', function () {
     var view, scope, $compile, template, page;
 
-    beforeEach(module('templates'));
+    beforeEach(angular.mock.module('templates'));
 
-    beforeEach(inject(function ($templateCache, _$compile_, $rootScope) {
+    beforeEach(angular.mock.inject(function ($templateCache, _$compile_, $rootScope) {
         template = $templateCache.get('app/welcome/welcome.html');
         $compile = _$compile_;
         scope = $rootScope.$new();

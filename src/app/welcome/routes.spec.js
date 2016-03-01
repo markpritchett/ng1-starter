@@ -1,9 +1,9 @@
 describe('Welcome Route', function () {
     var route;
 
-    beforeEach(module('app.welcome'));
+    beforeEach(angular.mock.module('app.welcome'));
 
-    beforeEach(inject(function ($route) {
+    beforeEach(angular.mock.inject(function ($route) {
         route = $route.routes['/welcome'];
     }));
 
