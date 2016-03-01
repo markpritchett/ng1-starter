@@ -1,9 +1,11 @@
-<h2>Welcome Page</h2>
+<div>
+    <h2>Welcome Page</h2>
 
-<!-- @if mode='local' -->
-<p>this only appears in whe mode is local</p>
-<!-- @endif -->
+    <!-- @if mode='local' -->
+    <p>this only appears in whe mode is local</p>
+    <!-- @endif -->
 
-<p>{{vm.message}}</p>
+    <p ng-if="vm.showMessage" id="message">{{vm.message}}</p>
 
-<name-component first-name="'Mark'"></name-component>
+    <name-component first-name="'Mark'"></name-component>
+</div>

@@ -5,13 +5,9 @@ var karmaFile = __dirname + '/../karma.conf.js';
 var bowerFiles = wiredep({ devDependencies: true })['js'];
 var buildCommon = require('./build.common.js');
 var config = require('./build.config.js');
-
 var conventionFileFilter = require('./conventionFileFilter.js');
 
-/**
- * Run test once and exit
- */
-gulp.task('test', function (done) {
+function getFiles() {
     var files = [].concat(config.appJs, config.unitTestingFiles).map(function (f) {
         return config.srcDir + f;
     });
@@ -20,21 +16,29 @@ gulp.task('test', function (done) {
         files: files,
         modes: config.modes,
         mode: config.mode,
-        debug: true
+        debug: false
     });
+
+    return [].concat(bowerFiles, appJsFiles, './build/app/templates.js');
+}
+
+/**
+ * Run test once and exit
+ */
+gulp.task('test', function (done) {
     new Server({
         configFile: karmaFile,
         singleRun: true,
-        //files: files
-        files: [].concat(bowerFiles, appJsFiles)
+        files: getFiles()
     }, done).start();
 });
 
 /**
  * Watch for file changes and re-run tests on each change
  */
-gulp.task('tdd', function (done) {
+gulp.task('tdd', ['template-cache'], function (done) {
     new Server({
         configFile: karmaFile,
+        files: getFiles()
     }, done).start();
 });
