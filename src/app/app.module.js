@@ -21,5 +21,12 @@
                     $rootScope.title = current.$$route.title;
                 });
             }
-        ]);
+        ])
+        .config(
+            ['$routeProvider',
+                function ($routeProvider) {
+                    $routeProvider
+                        .otherwise('/welcome');
+                }]
+        );;
 })();
