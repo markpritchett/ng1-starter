@@ -7,3 +7,5 @@ node_modules
 .bowerrc
 typings
 e2e-test-results
+coverage
+karma_html
