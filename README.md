@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/markpritchett/ng1-starter.svg?branch=master)](https://travis-ci.org/markpritchett/ng1-starter)
 #Getting Started
 
 ## Installing
